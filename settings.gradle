@@ -1,0 +1,2 @@
+rootProject.name = "SeLigaTurista"
+include ':app'
