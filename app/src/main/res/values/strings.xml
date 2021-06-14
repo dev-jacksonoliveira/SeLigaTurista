@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">SeLigaTurista</string>
+    <string name="De">De</string>
+    <string name="btn_consultar">Consultar</string>
+    <string name="titulo">Documentos necessários para a sua viagem</string>
+    <string name="subtitulo">Escolha o seu destino e saiba os detalhes sobre documentos.</string>
+    <string name="add_destino">Adicionar Destino</string>
+    <string name="hint_word">Destino</string>
+    <string name="btn_salvar">Salvar</string>
 </resources>
