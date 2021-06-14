@@ -14,22 +14,22 @@
 
         <!--text view for our course name-->
         <TextView
-            android:id="@+id/idTVCourseName"
+            android:id="@+id/textViewNomeDestino"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="8dp"
-            android:text="@string/course_name"
+            android:text="@string/nomeDestino"
             android:textColor="@color/black"
             android:textSize="18sp" />
 
         <!--text view for our course description-->
         <TextView
-            android:id="@+id/idTVCourseDescription"
+            android:id="@+id/textViewDescricao"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/idTVCourseName"
+            android:layout_below="@id/textViewNomeDestino"
             android:padding="5dp"
-            android:text="@string/course_description"
+            android:text="@string/descricao"
             android:textColor="@color/black" />
 
     </RelativeLayout>

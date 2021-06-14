@@ -12,7 +12,6 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.util.*
 
-
 class MainActivity2 : AppCompatActivity() {
 
     private var nomeDestino: EditText? = null
