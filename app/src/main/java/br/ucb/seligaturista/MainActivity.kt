@@ -60,9 +60,9 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        btnConsultar.setOnClickListener {
+        btnAdicionar.setOnClickListener {
 //            startActivityForResult(intent, newWordActivityRequestCode)
-            val intent = Intent(this, SharedPreference::class.java)
+            val intent = Intent(this, MainActivity2::class.java)
             startActivity(intent)
 
         }

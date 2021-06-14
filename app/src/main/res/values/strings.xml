@@ -7,4 +7,6 @@
     <string name="add_destino">Adicionar Destino</string>
     <string name="hint_word">Destino</string>
     <string name="btn_salvar">Salvar</string>
+    <string name="course_name">Course Name</string>
+    <string name="course_description">COurse Description</string>
 </resources>
