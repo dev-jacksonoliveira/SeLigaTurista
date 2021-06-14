@@ -1,6 +1,7 @@
 package br.ucb.seligaturista
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
@@ -11,6 +12,7 @@ import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import kotlinx.android.synthetic.main.activity_main.*
 import org.json.JSONArray
 import org.json.JSONException
 
@@ -56,6 +58,13 @@ class MainActivity : AppCompatActivity() {
             override fun onNothingSelected(parent: AdapterView<*>?) {
                 paises = null
             }
+        }
+
+        btnConsultar.setOnClickListener {
+//            startActivityForResult(intent, newWordActivityRequestCode)
+            val intent = Intent(this, SharedPreference::class.java)
+            startActivity(intent)
+
         }
 
     }
