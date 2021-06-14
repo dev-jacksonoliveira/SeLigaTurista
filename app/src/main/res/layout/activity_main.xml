@@ -63,20 +63,28 @@
         app:layout_constraintTop_toBottomOf="@id/origem_spinner"
         />
 
+    <TextView
+        android:id="@+id/textAdicionar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="6dp"
+        android:text="@string/textAdicionar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnConsultar"/>
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btnAdicionar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
         android:src="@drawable/ic_add"
 
         app:backgroundTint="@color/teal_900_light"
         app:layout_constraintEnd_toEndOf="parent"
-
-        app:layout_constraintTop_toBottomOf="parent"
-         />
+        app:layout_constraintTop_toBottomOf="@id/textAdicionar" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

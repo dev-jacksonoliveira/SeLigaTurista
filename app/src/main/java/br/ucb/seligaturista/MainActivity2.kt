@@ -1,6 +1,5 @@
 package br.ucb.seligaturista
 
-import CourseModal
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -15,123 +14,84 @@ import java.util.*
 
 
 class MainActivity2 : AppCompatActivity() {
-    // creating variables for our ui components.
-    private var courseNameEdt: EditText? = null
-    private var courseDescEdt: EditText? = null
+
+    private var nomeDestino: EditText? = null
+    private var descricao: EditText? = null
     private var addBtn: Button? = null
     private var saveBtn: Button? = null
-    private var courseRV: RecyclerView? = null
+    private var itemRecyclerView: RecyclerView? = null
+    private var adapter: ViagemAdapter? = null
+    private var viagemModalArrayList: ArrayList<ViagemModal>? = null
 
-    // variable for our adapter class and array list
-    private var adapter: CourseAdapter? = null
-    private var courseModalArrayList: ArrayList<CourseModal>? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
 
-//         initializing our variables.
-        courseNameEdt = findViewById(R.id.idEdtCourseName)
-        courseDescEdt = findViewById(R.id.idEdtCourseDescription)
+        nomeDestino = findViewById(R.id.editTextNomeDestino)
+        descricao = findViewById(R.id.editTextDescricao)
         addBtn = findViewById(R.id.idBtnAdd)
         saveBtn = findViewById(R.id.idBtnSave)
-        courseRV = findViewById(R.id.idRVCourses)
+        itemRecyclerView = findViewById(R.id.recyclerViewViagem)
 
-        // calling method to load data
-        // from shared prefs.
-        loadData()
+        // carregar dados
+        carregarDados()
 
-        // calling method to build
-        // recycler view.
-        buildRecyclerView()
+        // método que cria a recyclerView
+        criarRecyclerView()
 
-        // on click listener for adding data to array list.
-        addBtn?.setOnClickListener(View.OnClickListener { // below line is use to add data to array list.
-            courseModalArrayList!!.add(
-                CourseModal(
-                    courseNameEdt?.text.toString(),
-                    courseDescEdt?.text.toString()
+        // adicionar dados à lista de array.
+        addBtn?.setOnClickListener(View.OnClickListener {
+            viagemModalArrayList!!.add(
+                ViagemModal(
+                    nomeDestino?.text.toString(),
+                    descricao?.text.toString()
                 )
             )
-            // notifying adapter when new data added.
-            adapter!!.notifyItemInserted(courseModalArrayList!!.size)
+            // notificação de quando os dados são inseridos
+            adapter!!.notifyItemInserted(viagemModalArrayList!!.size)
         })
-        // on click listener for saving data in shared preferences.
+
         saveBtn?.setOnClickListener(View.OnClickListener { // calling method to save data in shared prefs.
-            saveData()
+            salvar()
         })
     }
 
-    private fun buildRecyclerView() {
-        // initializing our adapter class.
-        adapter = CourseAdapter(courseModalArrayList!!, this@MainActivity2)
+    // criar recyclerView
+    private fun criarRecyclerView() {
+        adapter = ViagemAdapter(viagemModalArrayList!!, this@MainActivity2)
 
-        // adding layout manager to our recycler view.
         val manager = LinearLayoutManager(this)
-        courseRV?.setHasFixedSize(true)
-//        courseRV!!.setHasFixedSize(true)
+        itemRecyclerView?.setHasFixedSize(true)
+        itemRecyclerView?.layoutManager = manager
+        itemRecyclerView?.adapter = adapter
 
-        // setting layout manager to our recycler view.
-        courseRV?.layoutManager = manager
-//        courseRV!!.layoutManager = manager
-
-        // setting adapter to our recycler view.
-        courseRV?.adapter = adapter
-//        courseRV!!.adapter = adapter
     }
 
-    private fun loadData() {
-        // method to load arraylist from shared prefs
-        // initializing our shared prefs with name as
-        // shared preferences.
+    private fun carregarDados() {
+
         val sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE)
-
-        // creating a variable for gson.
         val gson = Gson()
+//        val json = sharedPreferences.getString("courses", null)
+        val json = sharedPreferences.getString("viagem", null)
+        val type = object : TypeToken<ArrayList<ViagemModal?>?>() {}.type
 
-        // below line is to get to string present from our
-        // shared prefs if not present setting it as null.
-        val json = sharedPreferences.getString("courses", null)
+        viagemModalArrayList = gson.fromJson(json, type)
 
-        // below line is to get the type of our array list.
-        val type = object : TypeToken<ArrayList<CourseModal?>?>() {}.type
-
-        // in below line we are getting data from gson
-        // and saving it to our array list
-        courseModalArrayList = gson.fromJson(json, type)
-
-        // checking below if the array list is empty or not
-        if (courseModalArrayList == null) {
-            // if the array list is empty
-            // creating a new array list.
-            courseModalArrayList = ArrayList<CourseModal>()
+        if (viagemModalArrayList == null) {
+            viagemModalArrayList = ArrayList<ViagemModal>()
         }
     }
 
-    private fun saveData() {
-        // method for saving the data in array list.
-        // creating a variable for storing data in
-        // shared preferences.
+    // salvar informações no array
+    private fun salvar() {
         val sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE)
-
-        // creating a variable for editor to
-        // store data in shared preferences.
         val editor = sharedPreferences.edit()
-
-        // creating a new variable for gson.
         val gson = Gson()
 
-        // getting data from gson and storing it in a string.
-        val json = gson.toJson(courseModalArrayList)
-
-        // below line is to save data in shared
-        // prefs in the form of string.
-        editor.putString("courses", json)
-
-        // below line is to apply changes
-        // and save data in shared prefs.
+        val json = gson.toJson(viagemModalArrayList)
+        editor.putString("viagem", json)
         editor.apply()
 
-        // after saving data we are displaying a toast message.
-        Toast.makeText(this, "Saved Array List to Shared preferences. ", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "Destino salvo com sucesso! ", Toast.LENGTH_SHORT).show()
     }
 }

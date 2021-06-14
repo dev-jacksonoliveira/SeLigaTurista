@@ -8,36 +8,40 @@
 
     <!--edit text for adding course name-->
     <EditText
-        android:id="@+id/idEdtCourseName"
+        android:id="@+id/editTextNomeDestino"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_toStartOf="@id/idBtnSave"
         android:layout_toLeftOf="@id/idBtnSave"
-        android:hint="Enter course Name" />
+        android:hint="@string/hint_destino" />
 
     <!--edit text for adding course description-->
     <EditText
-        android:id="@+id/idEdtCourseDescription"
+        android:id="@+id/editTextDescricao"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/idEdtCourseName"
+        android:layout_below="@id/editTextNomeDestino"
         android:layout_marginEnd="4dp"
         android:layout_marginRight="4dp"
         android:layout_toLeftOf="@id/idBtnAdd"
-        android:hint="Enter Course Description" />
+        android:hint="@string/hint_descricao" />
 
     <!--button for adding data to recycler view-->
+
+    <!--button for saving data to shared prefs-->
     <Button
         android:id="@+id/idBtnAdd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/idEdtCourseName"
+        android:layout_below="@id/editTextNomeDestino"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_margin="10dp"
-        android:text="Add " />
+        android:layout_marginTop="33dp"
+        android:layout_marginEnd="301dp"
+        android:layout_marginRight="301dp"
+        android:text="@string/btn_adicionar" />
 
-    <!--button for saving data to shared prefs-->
     <Button
         android:id="@+id/idBtnSave"
         android:layout_width="wrap_content"
@@ -45,13 +49,13 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_margin="10dp"
-        android:text="Save " />
+        android:text="@string/btn_salvar" />
 
     <!--recycler view to display our data-->
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/idRVCourses"
+        android:id="@+id/recyclerViewViagem"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/idEdtCourseDescription" />
+        android:layout_below="@id/editTextDescricao" />
 
 </RelativeLayout>

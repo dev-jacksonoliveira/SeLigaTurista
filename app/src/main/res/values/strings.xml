@@ -9,4 +9,8 @@
     <string name="btn_salvar">Salvar</string>
     <string name="course_name">Course Name</string>
     <string name="course_description">COurse Description</string>
+    <string name="textAdicionar">Clique no botão abaixo para adicionar um destino</string>
+    <string name="hint_destino">Destino</string>
+    <string name="hint_descricao">Descrição</string>
+    <string name="btn_adicionar">Adicionar</string>
 </resources>
