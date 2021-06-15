@@ -25,6 +25,6 @@ Voter\'s Title, provided he has a photo (for those who have already taken the bi
         if you have enough resources for the period of stay.</string>
     <string name="btn_saiba_mais">Know more</string>
     <string name="titulo_info">Documents to travel</string>
-    <string name="titulo_destino">Adicione um destino para sua próxima viagem</string>
-    <string name="hint_data">Data</string>
+    <string name="titulo_destino">Add a destination for your next trip</string>
+    <string name="hint_data">Date</string>
 </resources>

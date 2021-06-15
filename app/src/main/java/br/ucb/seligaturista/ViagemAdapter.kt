@@ -23,7 +23,7 @@ class ViagemAdapter(viagemModalArrayList: ArrayList<ViagemModal>, context: Conte
         // definir dados para nossas visualizações do recyclerView
         val modal: ViagemModal = viagemModalArrayList[position]
         holder.nomeDestino.text = modal.nomeDestinoModal
-        holder.descricao.text = modal.descricaoModal
+        holder.data.text = modal.dataModal
     }
 
     override fun getItemCount(): Int {
@@ -33,7 +33,7 @@ class ViagemAdapter(viagemModalArrayList: ArrayList<ViagemModal>, context: Conte
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val nomeDestino: TextView = itemView.findViewById(R.id.textViewNomeDestino)
-        val descricao: TextView = itemView.findViewById(R.id.textViewDescricao)
+        val data: TextView = itemView.findViewById(R.id.textViewData)
 
         init { }
     }

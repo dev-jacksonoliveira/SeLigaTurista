@@ -24,15 +24,13 @@ import java.util.*
 
 class MainActivity2 : AppCompatActivity() {
 
-    // declaring variables
     lateinit var notificationManager: NotificationManager
     lateinit var notificationChannel: NotificationChannel
     lateinit var builder: Notification.Builder
     private val channelId = "i.apps.notifications"
-    private val description = "Test notification"
-
+    private val dataNotificacao = "Test notification"
     private var nomeDestino: EditText? = null
-    private var descricao: EditText? = null
+    private var data: EditText? = null
     private var addBtn: Button? = null
     private var saveBtn: Button? = null
     private var itemRecyclerView: RecyclerView? = null
@@ -45,7 +43,7 @@ class MainActivity2 : AppCompatActivity() {
         setContentView(R.layout.activity_main2)
 
         nomeDestino = findViewById(R.id.editTextNomeDestino)
-        descricao = findViewById(R.id.editTextDescricao)
+        data = findViewById(R.id.editTextData)
         addBtn = findViewById(R.id.idBtnAdd)
         saveBtn = findViewById(R.id.idBtnSave)
         itemRecyclerView = findViewById(R.id.recyclerViewViagem)
@@ -61,29 +59,21 @@ class MainActivity2 : AppCompatActivity() {
             viagemModalArrayList!!.add(
                 ViagemModal(
                     nomeDestino?.text.toString(),
-                    descricao?.text.toString()
+                    data?.text.toString()
                 )
             )
             // notificação de quando os dados são inseridos
             adapter!!.notifyItemInserted(viagemModalArrayList!!.size)
         })
 
-        // it is a class to notify the user of events that happen.
-        // This is how you tell the user that something has happened in the
-        // background.
+        // notificar os usuários
         notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
         saveBtn?.setOnClickListener(View.OnClickListener {
             salvar()
-            // exibir notificação após salvar
             exibirNotificacao()
         })
-
-
-
-
     }
-
 
     // criar recyclerView
     private fun criarRecyclerView() {
@@ -93,11 +83,9 @@ class MainActivity2 : AppCompatActivity() {
         itemRecyclerView?.setHasFixedSize(true)
         itemRecyclerView?.layoutManager = manager
         itemRecyclerView?.adapter = adapter
-
     }
 
     private fun carregarDados() {
-
         val sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE)
         val gson = Gson()
         val json = sharedPreferences.getString("viagem", null)
@@ -121,34 +109,17 @@ class MainActivity2 : AppCompatActivity() {
         editor.apply()
 
         Toast.makeText(this, "Destino salvo com sucesso! ", Toast.LENGTH_SHORT).show()
-
     }
 
+    // exibir notificação local após salvar
     private fun exibirNotificacao() {
         Thread.sleep(3000)
-        // pendingIntent is an intent for future use i.e after
-        // the notification is clicked, this intent will come into action
+
         val destino = nomeDestino?.text.toString()
-        val data = descricao?.text.toString()
-        val intent = Intent(this, afterNotification::class.java)
+        val data = data?.text.toString()
 
-        // FLAG_UPDATE_CURRENT specifies that if a previous
-        // PendingIntent already exists, then the current one
-        // will update it with the latest intent
-        // 0 is the request code, using it later with the
-        // same method again will get back the same pending
-        // intent for future reference
-        // intent passed here is to our afterNotification class
-        val pendingIntent = PendingIntent.getActivity(this, 0, intent,
-            PendingIntent.FLAG_UPDATE_CURRENT)
-
-        // RemoteViews are used to use the content of
-        // some different layout apart from the current activity layout
-        val contentView = RemoteViews(packageName, R.layout.activity_after_notification)
-
-        // checking if android version is greater than oreo(API 26) or not
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            notificationChannel = NotificationChannel(channelId, description,
+            notificationChannel = NotificationChannel(channelId, dataNotificacao,
                 NotificationManager.IMPORTANCE_HIGH)
             notificationChannel.enableLights(true)
             notificationChannel.lightColor = Color.GREEN
@@ -158,21 +129,16 @@ class MainActivity2 : AppCompatActivity() {
             builder = Notification.Builder(this, channelId)
                 .setContentTitle("Pensando em Viajar?")
                 .setContentText("Você tem um possível destino de viagem para $destino, em $data")
-//                .setStyle(Notification.BigTextStyle().bigText("OPA"))
                 .setSmallIcon(R.drawable.notification_icon)
                 .setLargeIcon(BitmapFactory.decodeResource(this.resources,
                     R.drawable.notification_icon))
-                .setContentIntent(pendingIntent)
         } else {
-
             builder = Notification.Builder(this)
                 .setContentTitle("Pensando em Viajar?")
                 .setContentText("Você tem um possível destino de viagem para $destino, em $data")
-//                .setStyle(Notification.BigTextStyle().bigText("OPA"))
                 .setSmallIcon(R.drawable.notification_icon)
                 .setLargeIcon(BitmapFactory.decodeResource(this.resources,
                     R.drawable.notification_icon))
-                .setContentIntent(pendingIntent)
         }
         notificationManager.notify(1234, builder.build())
     }

@@ -8,11 +8,20 @@
     android:elevation="8dp"
     app:cardCornerRadius="8dp">
 
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="@string/nomeDestino"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <!--text view for our course name-->
+
         <TextView
             android:id="@+id/textViewNomeDestino"
             android:layout_width="match_parent"
@@ -22,14 +31,13 @@
             android:textColor="@color/black"
             android:textSize="18sp" />
 
-        <!--text view for our course description-->
         <TextView
-            android:id="@+id/textViewDescricao"
+            android:id="@+id/textViewData"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/textViewNomeDestino"
             android:padding="5dp"
-            android:text="@string/descricao"
+            android:text="@string/hint_data"
             android:textColor="@color/black" />
 
     </RelativeLayout>

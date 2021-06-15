@@ -21,7 +21,6 @@
         android:id="@+id/titulo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-
         android:padding="6dp"
         android:text="@string/titulo"
         android:textStyle="bold"
@@ -41,6 +40,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/titulo"/>
+
+    <TextView
+        android:id="@+id/text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textStyle="bold|italic"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/subtitulo"
+        />
 
     <Spinner
         android:id="@+id/origem_spinner"
@@ -64,16 +75,13 @@
         app:layout_constraintTop_toBottomOf="@id/origem_spinner"
         />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btnAdicionar"
-        android:layout_width="wrap_content"
+    <VideoView
+        android:id="@+id/video_view"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        android:backgroundTint="@color/teal_900_light"
-        android:src="@drawable/ic_add"
-        tools:layout_editor_absoluteX="322dp"
-        tools:layout_editor_absoluteY="638dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnConsultar"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

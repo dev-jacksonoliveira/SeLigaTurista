@@ -25,6 +25,6 @@ Título del votante, siempre que tenga una foto (para aquellos que ya hayan toma
         si tiene suficientes recursos para el período de estadía.</string>
     <string name="btn_saiba_mais">Sepa mas</string>
     <string name="titulo_info">Documentos para viajar</string>
-    <string name="titulo_destino">Adicione um destino para sua próxima viagem</string>
-    <string name="hint_data">Data</string>
+    <string name="titulo_destino">Agrega un destino para tu próximo viaje</string>
+    <string name="hint_data">Fecha</string>
 </resources>
