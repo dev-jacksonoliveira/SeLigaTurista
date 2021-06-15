@@ -6,63 +6,43 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context=".MainActivity">
-
-    <ImageView
-        android:id="@+id/img"
-        android:layout_width="0dp"
-        android:layout_height="160dp"
-        android:padding="6dp"
-        android:src="@drawable/passaporte"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+    tools:context=".InfoDocumentos">
 
     <TextView
-        android:id="@+id/titulo"
+        android:id="@+id/titulo_info"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:padding="6dp"
-        android:text="@string/titulo"
+        android:text="@string/titulo_info"
         android:textStyle="bold"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/img" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/subtitulo"
+        android:id="@+id/informacoes"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="250dp"
         android:padding="6dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/subtitulo"
         android:textStyle="bold"
+        android:textSize="12sp"
+        android:text="@string/info"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/titulo"/>
-
-    <Spinner
-        android:id="@+id/origem_spinner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="6dp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/subtitulo"/>
+        app:layout_constraintTop_toBottomOf="@id/titulo_info"
+        />
 
     <Button
-        android:id="@+id/btnConsultar"
+        android:id="@+id/btnSaibaMais"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:padding="6dp"
         android:layout_marginTop="10dp"
-        android:text="@string/btn_consultar"
+        android:text="@string/btn_saiba_mais"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/origem_spinner"
-        />
+        app:layout_constraintTop_toBottomOf="@id/informacoes"/>
 
     <TextView
         android:id="@+id/textAdicionar"
@@ -72,19 +52,19 @@
         android:text="@string/textAdicionar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnConsultar"/>
+        app:layout_constraintTop_toBottomOf="@id/btnSaibaMais"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btnAdicionar"
+        android:id="@+id/infoBtnAdicionar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_marginTop="0dp"
         android:layout_marginEnd="0dp"
         android:src="@drawable/ic_add"
+
         app:backgroundTint="@color/teal_900_light"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textAdicionar" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

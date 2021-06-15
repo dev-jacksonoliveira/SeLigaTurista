@@ -2,6 +2,7 @@ package br.ucb.seligaturista
 
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
@@ -12,6 +13,7 @@ import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import kotlinx.android.synthetic.main.activity_info_documentos.*
 import kotlinx.android.synthetic.main.activity_main.*
 import org.json.JSONArray
 import org.json.JSONException
@@ -21,11 +23,12 @@ class MainActivity : AppCompatActivity() {
     private lateinit var request:StringRequest
     private lateinit var requestQueue:RequestQueue
     private val paises: ArrayList<Paises> = ArrayList()
-//    val url = "https://servicodados.ibge.gov.br/api/v1/localidades/paises?orderBy=nome"
-    private val url = "https://servicodados.ibge.gov.br/api/v1/localidades/estados?orderBy=nome"
+    val url = "https://servicodados.ibge.gov.br/api/v1/localidades/paises?orderBy=nome"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Thread.sleep(1000)
+        setTheme(R.style.Theme_SeLigaTurista)
         setContentView(R.layout.activity_main)
 
         val origemSpinner = findViewById<Spinner>(R.id.origem_spinner)
@@ -37,14 +40,8 @@ class MainActivity : AppCompatActivity() {
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
 
         origemSpinner.adapter = spinnerAdapter
-//        val spinnerAdapter: ArrayAdapter<*> =
-//            ArrayAdapter<Any?>(this, android.R.layout.simple_spinner_dropdown_item,
-//                paises as List<*>)
-//        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-//        origemSpinner.adapter = spinnerAdapter
-//
+
         var paises: Paises?
-//
         origemSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
                 parent: AdapterView<*>,
@@ -60,16 +57,21 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        // consultar informações sobre os documentos
+        btnConsultar.setOnClickListener {
+            val intentConsulta = Intent(this, InfoDocumentos::class.java )
+            startActivity(intentConsulta)
+        }
+
+
+        // direcionar para outra tela para adicionar um destino
         btnAdicionar.setOnClickListener {
-//            startActivityForResult(intent, newWordActivityRequestCode)
             val intent = Intent(this, MainActivity2::class.java)
             startActivity(intent)
 
         }
 
     }
-
-
 
     private fun retornaJSONPaises() {
 
@@ -85,22 +87,13 @@ class MainActivity : AppCompatActivity() {
                     for (i in 0 until jsonArray.length()) {
 
                         jsonString = jsonArray.getJSONObject(i).getString("nome")
-    //                    jsonInt = jsonArray.getJSONObject(i).getInt("id")
                         jsonInt = cont
                         paises.add(Paises(jsonInt, jsonString))
-
                         cont += 1
 
-    //                    val paises: ArrayList<Paises> = ArrayList()
-    //                    paises.add(Paises(1, "Fulano "))
-    //                    paises.add(Paises(2, "Fulano "))
-
-                        println("PAISES: $jsonString")
-                        println("ID: $jsonInt")
                     }
                 } catch (e: JSONException) {
                     e.printStackTrace()
-                    println("Nomes:")
                 }
 
         }) { }

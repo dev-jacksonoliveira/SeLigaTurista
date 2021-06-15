@@ -13,4 +13,16 @@
     <string name="hint_destino">Destino</string>
     <string name="hint_descricao">Descrição</string>
     <string name="btn_adicionar">Adicionar</string>
+    <string name="info">Carteira Nacional de Habilitação (CNH-e)
+Documento Nacional de Identidade (DNI)
+Título de Eleitor, desde que possua foto (para aqueles que já realizaram a biometria perante o
+        Tribunal Regional Eleitoral de seu Estado). Passagem de retorno: alguns países pedem
+        passagem de volta ao local de origem ou para outro destino. Isso pode acontecer em viagens
+        de turismo, negócios ou de estudo. A ideia é garantir que a pessoa não permaneça no país
+        além do necessário. Certificado de vacina: confira se o seu destino não pede vacinas
+        específicas para determinadas doenças regionais. Saiba mais detalhes sobre a exigência de
+        vacinas para viagens. Comprovação monetária: ao chegar ao país, pode ser necessário indicar
+        se você possui recursos suficientes para o período de permanência.</string>
+    <string name="btn_saiba_mais">Saiba Mais</string>
+    <string name="titulo_info">Documentos para viajar</string>
 </resources>
