@@ -1,27 +1,24 @@
 package br.ucb.seligaturista
 
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.view.View
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.MediaController
-import android.widget.Spinner
+import android.widget.*
+import android.widget.AdapterView.OnItemSelectedListener
 import androidx.appcompat.app.AppCompatActivity
 import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
-import kotlinx.android.synthetic.main.activity_info_documentos.*
 import kotlinx.android.synthetic.main.activity_main.*
 import org.json.JSONArray
 import org.json.JSONException
 
+
 class MainActivity : AppCompatActivity() {
     private lateinit var request:StringRequest
     private lateinit var requestQueue:RequestQueue
-    private val paises: ArrayList<Paises> = ArrayList()
+    val paises: ArrayList<Paises> = ArrayList()
     val url = "https://servicodados.ibge.gov.br/api/v1/localidades/paises?orderBy=nome"
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,25 +30,28 @@ class MainActivity : AppCompatActivity() {
         // Retorna os dados da API e insere no array Paises
         retornaJSONPaises()
         val spinnerAdapter = ArrayAdapter(
-            this, android.R.layout.simple_spinner_item, paises as List<Any?>)
+            this, android.R.layout.simple_spinner_item, paises)
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
 
         origem_spinner.adapter = spinnerAdapter
 
-        var paises: Paises?
-        origem_spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+        origem_spinner.onItemSelectedListener = object : OnItemSelectedListener {
             override fun onItemSelected(
                 parent: AdapterView<*>,
                 view: View,
                 position: Int,
                 id: Long
             ) {
-                text_view?.text = parent.getItemAtPosition(position).toString()
+                parent.getItemAtPosition(position).toString()
+
+                Toast.makeText(this@MainActivity, "Item Selecionado = ${parent.getItemAtPosition(position)}", Toast.LENGTH_SHORT)
+                    .show()
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
             }
         }
+
 
         // consultar informações sobre os documentos
         btnConsultar.setOnClickListener {
@@ -99,6 +99,7 @@ class MainActivity : AppCompatActivity() {
         video_view.setMediaController(mediaController)
         video_view.requestFocus()
         video_view.start()
+
     }
 
 }

@@ -27,4 +27,5 @@ Voter\'s Title, provided he has a photo (for those who have already taken the bi
     <string name="titulo_info">Documents to travel</string>
     <string name="titulo_destino">Add a destination for your next trip</string>
     <string name="hint_data">Date</string>
+    <string name="textSelecione">Select a destination</string>
 </resources>

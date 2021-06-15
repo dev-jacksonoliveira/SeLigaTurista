@@ -27,4 +27,5 @@ Título del votante, siempre que tenga una foto (para aquellos que ya hayan toma
     <string name="titulo_info">Documentos para viajar</string>
     <string name="titulo_destino">Agrega un destino para tu próximo viaje</string>
     <string name="hint_data">Fecha</string>
+    <string name="textSelecione">Seleccione un destino</string>
 </resources>

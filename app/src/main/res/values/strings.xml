@@ -26,4 +26,5 @@ Título de Eleitor, desde que possua foto (para aqueles que já realizaram a bio
     <string name="titulo_info">Documentos para viajar</string>
     <string name="titulo_destino">Adicione um destino para sua próxima viagem</string>
     <string name="hint_data">Data</string>
+    <string name="textSelecione">Selecione um destino</string>
 </resources>
