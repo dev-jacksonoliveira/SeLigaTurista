@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SeLigaTurista</string>
+    <string name="btn_consultar">Consult</string>
+    <string name="titulo">Documents required for your trip</string>
+    <string name="subtitulo">Choose your destination and find out the details about documents.</string>
+    <string name="add_destino">Add Destination</string>
+    <string name="hint_word">Destiny</string>
+    <string name="btn_salvar">Save</string>
+    <string name="nomeDestino">Destiny</string>
+    <string name="descricao">Description</string>
+    <string name="textAdicionar">Click the button below to add a destination</string>
+    <string name="hint_destino">Destiny</string>
+    <string name="hint_descricao">Description</string>
+    <string name="btn_adicionar">To add</string>
+    <string name="info">National Driver\'s License (CNH-e)
+National Identity Card (DNI)
+Voter\'s Title, provided he has a photo (for those who have already taken the biometrics before the
+        Regional Electoral Court of your State). Return ticket: some countries request
+        passage back to the place of origin or to another destination. This can happen on trips
+        tourism, business or study. The idea is to ensure that the person does not stay in the country
+        beyond what is necessary. Vaccination certificate: check if your destination does not require vaccinations
+        specific for certain regional diseases. Find out more details about the requirement for
+        vaccines for travel. Monetary proof: upon arrival in the country, it may be necessary to indicate
+        if you have enough resources for the period of stay.</string>
+    <string name="btn_saiba_mais">Know more</string>
+    <string name="titulo_info">Documents to travel</string>
+    <string name="titulo_destino">Adicione um destino para sua próxima viagem</string>
+    <string name="hint_data">Data</string>
+</resources>

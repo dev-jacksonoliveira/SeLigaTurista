@@ -27,14 +27,14 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Thread.sleep(1000)
+        Thread.sleep(3000)
         setTheme(R.style.Theme_SeLigaTurista)
         setContentView(R.layout.activity_main)
 
         val origemSpinner = findViewById<Spinner>(R.id.origem_spinner)
         // Retorna os dados da API e insere no array Paises
         retornaJSONPaises()
-
+        origemSpinner!!.setOnItemSelectedListener(this)
         val spinnerAdapter = ArrayAdapter(
             this, android.R.layout.simple_spinner_item, paises as List<Any?>)
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -71,8 +71,10 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-    }
+        
 
+    }
+    // Retorna os dados da API e insere no array Paises
     private fun retornaJSONPaises() {
 
         // Instanciar a RequestQueue.
@@ -99,6 +101,10 @@ class MainActivity : AppCompatActivity() {
         }) { }
         requestQueue.add(request)
     }
+
+}
+
+private fun Spinner.setOnItemSelectedListener(mainActivity: MainActivity) {
 
 }
 

@@ -9,6 +9,7 @@ import kotlinx.android.synthetic.main.activity_info_documentos.*
 class InfoDocumentos : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setTheme(R.style.Theme_SeLigaTurista)
         setContentView(R.layout.activity_info_documentos)
 
         btnSaibaMais.setOnClickListener {

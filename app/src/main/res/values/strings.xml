@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">SeLigaTurista</string>
-    <string name="De">De</string>
     <string name="btn_consultar">Consultar</string>
     <string name="titulo">Documentos necessários para a sua viagem</string>
     <string name="subtitulo">Escolha o seu destino e saiba os detalhes sobre documentos.</string>
@@ -25,4 +24,6 @@ Título de Eleitor, desde que possua foto (para aqueles que já realizaram a bio
         se você possui recursos suficientes para o período de permanência.</string>
     <string name="btn_saiba_mais">Saiba Mais</string>
     <string name="titulo_info">Documentos para viajar</string>
+    <string name="titulo_destino">Adicione um destino para sua próxima viagem</string>
+    <string name="hint_data">Data</string>
 </resources>

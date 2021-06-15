@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SeLigaTurista</string>
+    <string name="btn_consultar">Consultar</string>
+    <string name="titulo">Documentos necesarios para su viaje</string>
+    <string name="subtitulo">Elija su destino y conozca los detalles sobre los documentos.</string>
+    <string name="add_destino">Agregar destino</string>
+    <string name="hint_word">Destino</string>
+    <string name="btn_salvar">Ahorrar</string>
+    <string name="nomeDestino">Destino</string>
+    <string name="descricao">Descripción</string>
+    <string name="textAdicionar">Haga clic en el botón de abajo para agregar un destino</string>
+    <string name="hint_destino">Destino</string>
+    <string name="hint_descricao">Descripción</string>
+    <string name="btn_adicionar">Para agregar</string>
+    <string name="info">Licencia de conducir nacional (CNH-e)
+Cédula Nacional de Identidad (DNI)
+Título del votante, siempre que tenga una foto (para aquellos que ya hayan tomado los datos biométricos antes de la
+        Tribunal Regional Electoral de su Estado). Billete de ida y vuelta: algunos países lo solicitan
+        pasaje de regreso al lugar de origen oa otro destino. Esto puede suceder en viajes.
+        turismo, negocios o estudio. La idea es asegurar que la persona no se quede en el país
+        más allá de lo necesario. Certificado de vacunación: compruebe si su destino no requiere vacunas
+        específico para determinadas enfermedades regionales. Obtenga más información sobre el requisito de
+        vacunas para viajar. Comprobante monetario: al llegar al país, puede ser necesario indicar
+        si tiene suficientes recursos para el período de estadía.</string>
+    <string name="btn_saiba_mais">Sepa mas</string>
+    <string name="titulo_info">Documentos para viajar</string>
+    <string name="titulo_destino">Adicione um destino para sua próxima viagem</string>
+    <string name="hint_data">Data</string>
+</resources>

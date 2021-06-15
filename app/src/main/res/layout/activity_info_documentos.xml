@@ -15,7 +15,7 @@
         android:padding="6dp"
         android:text="@string/titulo_info"
         android:textStyle="bold"
-        android:textSize="18sp"
+        android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -23,10 +23,10 @@
     <TextView
         android:id="@+id/informacoes"
         android:layout_width="0dp"
-        android:layout_height="250dp"
+        android:layout_height="420dp"
         android:padding="6dp"
         android:textStyle="bold"
-        android:textSize="12sp"
+        android:textSize="17sp"
         android:text="@string/info"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
